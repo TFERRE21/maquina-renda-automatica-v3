@@ -1,0 +1,16 @@
+{
+  "name": "maquina-renda-automatica",
+  "version": "1.0.0",
+  "description": "Bot automático YouTube",
+  "main": "scripts/autoRun.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node scripts/autoRun.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "googleapis": "^171.4.0",
+    "node-cron": "^3.0.0",
+    "openai": "^4.22.1"
+  }
+}
