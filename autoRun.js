@@ -11,33 +11,33 @@ if (!fs.existsSync(IMG_DIR)) fs.mkdirSync(IMG_DIR);
 
 console.log("🚀 Iniciando automação completa...");
 
-/////////////////////////////
+//////////////////////////////////////////////////
 // 1️⃣ GERAR ROTEIRO
-/////////////////////////////
+//////////////////////////////////////////////////
 
 console.log("🧠 Gerando roteiro mínimo 2 minutos...");
 
 const roteiro = `
 Você sabia que existem fatos surpreendentes sobre o mundo que poucas pessoas conhecem?
 
-Hoje você vai descobrir curiosidades que podem mudar sua forma de enxergar o planeta.
+Hoje você vai descobrir curiosidades incríveis que podem mudar sua forma de enxergar o planeta.
 
 Existem lugares na Terra onde nunca choveu.
 Animais que conseguem sobreviver no espaço.
-E fenômenos naturais que desafiam a ciência.
+E fenômenos naturais que desafiam a ciência moderna.
 
-Fique até o final porque o último fato vai te surpreender.
+Fique até o final porque o último fato vai realmente te surpreender.
 
 Se você gosta desse tipo de conteúdo, deixe seu like e siga para mais curiosidades incríveis.
 `;
 
 fs.writeFileSync(path.join(OUTPUT, "roteiro.txt"), roteiro);
 
-console.log("✅ Roteiro 2 minutos salvo!");
+console.log("✅ Roteiro salvo!");
 
-/////////////////////////////
+//////////////////////////////////////////////////
 // 2️⃣ GERAR IMAGENS
-/////////////////////////////
+//////////////////////////////////////////////////
 
 console.log("🖼 Gerando 6 imagens...");
 
@@ -51,11 +51,11 @@ for (let i = 1; i <= 6; i++) {
 
 console.log("🎉 Imagens geradas!");
 
-/////////////////////////////
-// 3️⃣ GERAR ÁUDIO (INTERNO)
-/////////////////////////////
+//////////////////////////////////////////////////
+// 3️⃣ GERAR ÁUDIO DIRETO AQUI (SEM OUTRO ARQUIVO)
+//////////////////////////////////////////////////
 
-console.log("🎙 Gerando áudio narrado...");
+console.log("🎙 Gerando áudio...");
 
 execSync(
   `ffmpeg -y -f lavfi -i anullsrc=r=24000:cl=mono -t 120 -q:a 9 -acodec libmp3lame "${OUTPUT}/audio.mp3"`,
@@ -64,9 +64,9 @@ execSync(
 
 console.log("✅ Áudio criado!");
 
-/////////////////////////////
-// 4️⃣ CRIAR LISTA PARA VÍDEO
-/////////////////////////////
+//////////////////////////////////////////////////
+// 4️⃣ LISTA PARA CONCAT
+//////////////////////////////////////////////////
 
 let list = "";
 for (let i = 1; i <= 6; i++) {
@@ -77,9 +77,9 @@ list += `file '${IMG_DIR}/img_6.png'\n`;
 
 fs.writeFileSync(path.join(OUTPUT, "list.txt"), list);
 
-/////////////////////////////
+//////////////////////////////////////////////////
 // 5️⃣ GERAR VÍDEO FINAL
-/////////////////////////////
+//////////////////////////////////////////////////
 
 console.log("🎬 Criando vídeo final...");
 
